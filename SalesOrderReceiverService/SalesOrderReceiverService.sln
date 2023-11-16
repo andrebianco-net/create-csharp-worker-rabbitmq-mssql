@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesOrderReceiverService.Worker", "SalesOrderReceiverService.Worker\SalesOrderReceiverService.Worker.csproj", "{89ADB6E9-5D21-448D-BD21-070EDB88032B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesOrderReceiverService.Application", "SalesOrderReceiverService.Application\SalesOrderReceiverService.Application.csproj", "{3A3E5EED-9A2F-4A9A-A961-0F5E0713ECAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesOrderReceiverService.Domain", "SalesOrderReceiverService.Domain\SalesOrderReceiverService.Domain.csproj", "{BE123E04-38CE-45F3-86A5-668C67B85DF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesOrderReceiverService.Infra.Data", "SalesOrderReceiverService.Infra.Data\SalesOrderReceiverService.Infra.Data.csproj", "{D88FD45D-EF4E-47D0-8A68-66CB97B7D259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesOrderReceiverService.Infra.IoC", "SalesOrderReceiverService.Infra.IoC\SalesOrderReceiverService.Infra.IoC.csproj", "{FC84120E-E4A7-4F1E-95C3-DBB218C52EF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Log", "Log", "{869D33A6-F38D-498F-95AC-8F8B4F8A9979}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesOrderReceiverService.Domain.Tests", "SalesOrderReceiverService.Domain.Tests\SalesOrderReceiverService.Domain.Tests.csproj", "{0ECA08D3-BE95-46B0-BD73-3D2B0569AEC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89ADB6E9-5D21-448D-BD21-070EDB88032B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89ADB6E9-5D21-448D-BD21-070EDB88032B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89ADB6E9-5D21-448D-BD21-070EDB88032B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89ADB6E9-5D21-448D-BD21-070EDB88032B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A3E5EED-9A2F-4A9A-A961-0F5E0713ECAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A3E5EED-9A2F-4A9A-A961-0F5E0713ECAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A3E5EED-9A2F-4A9A-A961-0F5E0713ECAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A3E5EED-9A2F-4A9A-A961-0F5E0713ECAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE123E04-38CE-45F3-86A5-668C67B85DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE123E04-38CE-45F3-86A5-668C67B85DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE123E04-38CE-45F3-86A5-668C67B85DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE123E04-38CE-45F3-86A5-668C67B85DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88FD45D-EF4E-47D0-8A68-66CB97B7D259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88FD45D-EF4E-47D0-8A68-66CB97B7D259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88FD45D-EF4E-47D0-8A68-66CB97B7D259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88FD45D-EF4E-47D0-8A68-66CB97B7D259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC84120E-E4A7-4F1E-95C3-DBB218C52EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC84120E-E4A7-4F1E-95C3-DBB218C52EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC84120E-E4A7-4F1E-95C3-DBB218C52EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC84120E-E4A7-4F1E-95C3-DBB218C52EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ECA08D3-BE95-46B0-BD73-3D2B0569AEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ECA08D3-BE95-46B0-BD73-3D2B0569AEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ECA08D3-BE95-46B0-BD73-3D2B0569AEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ECA08D3-BE95-46B0-BD73-3D2B0569AEC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C6B7272-7DB1-4415-8BAF-D5852FABDDAB}
+	EndGlobalSection
+EndGlobal

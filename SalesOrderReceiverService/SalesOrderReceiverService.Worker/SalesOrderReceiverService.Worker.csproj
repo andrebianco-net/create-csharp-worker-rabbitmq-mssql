@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-SalesOrderReceiverService.Worker-6653245e-a916-4f65-8c35-bb30775f7235</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.template" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.template" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SalesOrderReceiverService.Infra.IoC\SalesOrderReceiverService.Infra.IoC.csproj" />
+  </ItemGroup>
+</Project>

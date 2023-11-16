@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SalesOrderReceiverService.Application\SalesOrderReceiverService.Application.csproj" />
+    <ProjectReference Include="..\SalesOrderReceiverService.Domain\SalesOrderReceiverService.Domain.csproj" />
+    <ProjectReference Include="..\SalesOrderReceiverService.Infra.Data\SalesOrderReceiverService.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
