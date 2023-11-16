@@ -1,0 +1,39 @@
+# Configuration file
+appsettings.json
+Migrations/
+Log/
+
+# Build results
+artifacts/
+.idea/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+bld/
+[Bb]in/
+[Oo]bj/
+MSBuild_Logs/
+msbuild.log
+msbuild.err
+msbuild.wrn
+*.binlog
+.deps/
+.dirstamp
+.libs/
+*.lo
+*.o
+
+# NuGet Packages
+*.nupkg
+*.nuget.g.props
+*.nuget.g.targets
+*.nuget.cache
+**/packages/*
+project.lock.json
+project.assets.json
+*.nuget.dgspec.json
+
+# ignore vscode configuration
+.vscode/
+.vs
