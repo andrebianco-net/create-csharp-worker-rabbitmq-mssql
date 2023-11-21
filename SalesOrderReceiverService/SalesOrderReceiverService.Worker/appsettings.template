@@ -4,5 +4,19 @@
       "Default": "Information",
       "Microsoft.Hosting.Lifetime": "Information"
     }
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "YOUR STRING CONNECTION"
+  },
+  "Worker": {
+    "Interval": 1000
+  },
+  "Serilog": {
+    "Folder": "/home/andre/Projects/create-csharp-worker-rabbitmq-mssql/SalesOrderReceiverService/Log",
+    "File": "SalesOrderReceiverServiceWorker.log",
+    "Size": 5242880
+  },
+  "RabbitMQ": {
+
   }
 }
