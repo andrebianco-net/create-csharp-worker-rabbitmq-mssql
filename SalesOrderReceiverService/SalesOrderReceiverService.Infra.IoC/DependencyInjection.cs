@@ -10,6 +10,9 @@ using SalesOrderReceiverService.Application.Interfaces;
 using SalerOrderReceiverService.Domain.Interfaces;
 using SalesOrderReceiverService.Infra.Data.Repositories;
 using SalesOrderReceiverService.Domain.Entities;
+using SalesOrderReceiverService.RabbitMQ.Interfaces;
+using SalesOrderReceiverService.RabbitMQ;
+using SalesOrderReceiverService.Domain.Interfaces;
 
 namespace SalesOrderReceiverService.Infra.IoC
 {
@@ -31,10 +34,15 @@ namespace SalesOrderReceiverService.Infra.IoC
             services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISalesOrderRepository, SalesOrderRepository>();
+            services.AddScoped<ISalesOrderReceiverRabbitMQRepository, SalesOrderReceiverRabbitMQRepository>();
 
             // Service
             services.AddScoped<ISalesOrderReceiverAppService, SalesOrderReceiverAppService>();
+            services.AddScoped<ISalesOrderReceiverRabbitMQService, SalesOrderReceiverRabbitMQService>();
             services.AddScoped<ISalesOrderService, SalesOrderService>();
+
+            // RabbitMQ
+            services.AddScoped<ISalesOrderReceiverRabbitMQ, SalesOrderReceiverRabbitMQ>();
 
             // Mapper
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
