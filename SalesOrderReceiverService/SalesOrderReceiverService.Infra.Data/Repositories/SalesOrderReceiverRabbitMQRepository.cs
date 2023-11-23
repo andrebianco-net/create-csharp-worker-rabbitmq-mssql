@@ -20,7 +20,7 @@ namespace SalesOrderReceiverService.Infra.Data.Repositories
             _logger = logger;
         }
 
-        public async Task Send()
+        public async Task Receive()
         {
             throw new NotImplementedException();
         }
