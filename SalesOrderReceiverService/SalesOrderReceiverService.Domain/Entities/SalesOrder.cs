@@ -8,20 +8,20 @@ namespace SalesOrderReceiverService.Domain.Entities
         public DateTime SoldAt { get; private set; }
         public bool AcceptedOrder { get; private set; }
 
-        public SalesOrder(decimal total, DateTime soldAt, bool acceptedOrder)
+        public SalesOrder(decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
         {
-            ValidateDomain(total, soldAt, acceptedOrder);
+            ValidateDomain(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
         }
 
-        public SalesOrder(int id, decimal total, DateTime soldAt, bool acceptedOrder)
+        public SalesOrder(int id, decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
         {
             ValidateDomain(id);
-            ValidateDomain(total, soldAt, acceptedOrder);
+            ValidateDomain(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
         }
 
         public void Update(decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
         {
-            ValidateDomain(total, soldAt, acceptedOrder);
+            ValidateDomain(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
             CustomerId = customerId;
             CategoryId = categoryId;
             PaymentTypeId = paymentTypeId;
@@ -29,9 +29,12 @@ namespace SalesOrderReceiverService.Domain.Entities
             ModifiedAt = DateTime.Now;
         }
 
-        private void ValidateDomain(decimal total, DateTime soldAt, bool acceptedOrder)
+        private void ValidateDomain(decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
         {
-            DomainExceptionValidation.When(total < 0, "Invalid total value");
+            DomainExceptionValidation.When(total <= 0, "Invalid total value");
+            DomainExceptionValidation.When(customerId < 0, "Invalid Id value.");
+            DomainExceptionValidation.When(categoryId < 0, "Invalid Id value.");
+            DomainExceptionValidation.When(paymentTypeId < 0, "Invalid Id value.");
         }
 
         public int CustomerId { get; private set; }

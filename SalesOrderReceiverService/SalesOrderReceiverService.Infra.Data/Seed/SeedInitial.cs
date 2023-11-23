@@ -56,11 +56,35 @@ namespace SalerOrderReceiverService.Infra.Data.Seed
                 PaymentType paymentType = new PaymentType(paymentName);
                 _paymentTypeRepository.CreatePaymentTypeAsync(paymentType).Wait();
             }
+            
+            paymentName = "Money";
+
+            if(!_paymentTypeRepository.PaymentTypeExistsAsync(paymentName).Result)
+            {
+                PaymentType paymentType = new PaymentType(paymentName);
+                _paymentTypeRepository.CreatePaymentTypeAsync(paymentType).Wait();
+            }
         }
 
         public void SeedProducts()
         {
             string productName = "Fittipaldi Wheel 369 22pol";
+
+            if(!_productRepository.ProductExistsAsync(productName).Result)
+            {
+                Product product = new Product(productName);
+                _productRepository.CreateProductAsync(product).Wait();
+            }
+
+            productName = "Fittipaldi Wheel 370 22pol";
+
+            if(!_productRepository.ProductExistsAsync(productName).Result)
+            {
+                Product product = new Product(productName);
+                _productRepository.CreateProductAsync(product).Wait();
+            }
+
+            productName = "Fittipaldi Wheel 371 22pol";
 
             if(!_productRepository.ProductExistsAsync(productName).Result)
             {
