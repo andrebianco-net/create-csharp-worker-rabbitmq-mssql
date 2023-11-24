@@ -4,6 +4,6 @@ namespace SalesOrderReceiverService.Application.Interfaces
 {
     public interface ISalesOrderReceiverRabbitMQService
     {
-        Task Receive();
+        Task<List<string>> Receive();
     }
 }

@@ -22,7 +22,8 @@ namespace SalesOrderReceiverService.Application.Services
 
         public async Task SalesOrderReceiverRun()
         {
-            //var test = _salesOrderService.CreateSalesOrder();
+            List<string> messages = await _salesOrderReceiverRabbitMQService.Receive();
+            
         }
     }
 

@@ -2,6 +2,6 @@
 {
     public interface ISalesOrderReceiverRabbitMQ
     {
-        Task Receive();
+        Task<List<string>> Receive();
     }
 }

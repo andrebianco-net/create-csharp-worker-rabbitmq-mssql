@@ -20,9 +20,9 @@ namespace SalesOrderReceiverService.Infra.Data.Repositories
             _logger = logger;
         }
 
-        public async Task Receive()
+        public async Task<List<string>> Receive()
         {
-            throw new NotImplementedException();
+            return await _salesOrderReceiverRabbitMQ.Receive();
         }
     }
 }

@@ -6,7 +6,7 @@
     }
   },
   "ConnectionStrings": {
-    "DefaultConnection": "YOUR STRING CONNECTION"
+    "DefaultConnection": "YOUR CONNECTION STRING"
   },
   "Worker": {
     "Interval": 1000
@@ -17,6 +17,13 @@
     "Size": 5242880
   },
   "RabbitMQ": {
-
+    "Uri": "amqp://YOUR USER:YOUR PASSWORD@YOUR HOST:5672",
+    "ClientProvidedName": "Sales Order Receiver",
+    "ExchangeName": "ExchangeSalesOrder",
+    "RoutingKey": "sales-order-01",
+    "QueueName": "SalesOrder",
+    "BasicQosPrefetchSize": 0,
+    "BasicQosPrefetchCount": 10,
+    "BasicQosGlobal": true
   }
 }

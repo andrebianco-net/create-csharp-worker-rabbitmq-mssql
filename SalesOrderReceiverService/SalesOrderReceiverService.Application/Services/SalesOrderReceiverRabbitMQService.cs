@@ -18,9 +18,9 @@ namespace SalesOrderReceiverService.Application.Services
             _mapper = mapper;
         }
 
-        public async Task Receive()
+        public async Task<List<string>> Receive()
         {
-            throw new NotImplementedException();
+            return await _salesOrderReceiverRabbitMQRepository.Receive();
         }
     }
 }
