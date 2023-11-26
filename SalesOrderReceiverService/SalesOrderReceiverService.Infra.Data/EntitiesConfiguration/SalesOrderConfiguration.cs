@@ -11,7 +11,6 @@ namespace SalesOrderReceiverService.Infra.Data.EntitiesConfiguration
             builder.HasKey(x => x.Id);
             builder.Property(p => p.Total).HasPrecision(10,2);
             builder.Property(p => p.SoldAt).IsRequired();
-            builder.Property(p => p.AcceptedOrder).IsRequired();
             builder.Property(p => p.CreatedAt).IsRequired();
 
             builder.HasOne(e => e.Category).WithMany(e => e.SalesOrders).HasForeignKey(e => e.CategoryId);

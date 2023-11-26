@@ -4,6 +4,8 @@ using RabbitMQ.Client;
 using SalesOrderReceiverService.RabbitMQ.Interfaces;
 using RabbitMQ.Client.Events;
 using System.Text;
+using SalesOrderReceiverService.Domain.Entities;
+using Newtonsoft.Json;
 
 namespace SalesOrderReceiverService.RabbitMQ
 {
@@ -19,10 +21,10 @@ namespace SalesOrderReceiverService.RabbitMQ
             _logger = logger;
         }
 
-        public async Task<List<string>> Receive()
+        public async Task<List<Message>> Receive()
         {
-            
-            List<string> messages = new List<string>();
+
+            List<Message> messages = new List<Message>();
 
             try
             {
@@ -48,21 +50,32 @@ namespace SalesOrderReceiverService.RabbitMQ
                 bool global = Boolean.Parse(_configuration["RabbitMQ:BasicQosGlobal"]);
 
                 channel.BasicQos(prefetchSize, prefetchCount, global);
-                
-                
-                EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
-                
 
-                consumer.Received += (sender, args) =>
+
+                EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
+
+
+                consumer.Received += async (sender, args) =>
                 {
 
-                    byte[] body = args.Body.ToArray();
+                    try
+                    {
 
-                    string messageBody = Encoding.UTF8.GetString(body);
+                        byte[] body = args.Body.ToArray();
 
-                    messages.Add(messageBody);
+                        string messageBody = Encoding.UTF8.GetString(body);
 
-                    channel.BasicAck(args.DeliveryTag, false);
+                        Message message = convertDocToMessage(messageBody);
+
+                        messages.Add(message);
+
+                        channel.BasicAck(args.DeliveryTag, false);
+
+                    }
+                    catch (System.Exception ex)
+                    {
+                        _logger.LogError($"SalesOrderReceiverRabbitMQ.Receive.Received -> Error: {ex.Message}");
+                    }
 
                 };
 
@@ -75,12 +88,53 @@ namespace SalesOrderReceiverService.RabbitMQ
 
             }
             catch (System.Exception ex)
-            {                
+            {
                 _logger.LogError($"SalesOrderReceiverRabbitMQ -> Error: {ex.Message}");
-            }   
-            
+            }
+
             return messages;
 
+        }
+
+        private Message convertDocToMessage(string document)
+        {
+            Message message = null;
+
+            try
+            {
+
+                SalesOrderDoc salesOrderFromJson = JsonConvert.DeserializeObject<SalesOrderDoc>(document);
+
+                SalesOrder salesOrder = new SalesOrder(
+                    salesOrderFromJson.Total, 
+                    salesOrderFromJson.SoldAt, 
+                    salesOrderFromJson.CustomerId, 
+                    salesOrderFromJson.CategoryId, 
+                    salesOrderFromJson.PaymentTypeId
+                );
+
+                List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
+                SalesOrderItem salesOrderItem = null;
+
+                foreach (int productId in salesOrderFromJson.ListProductId)
+                {
+                    salesOrderItem = new SalesOrderItem(
+                        0,
+                        productId 
+                    );
+
+                    salesOrderItems.Add(salesOrderItem);
+                }
+
+                message = new Message(salesOrder, salesOrderItems);
+
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError($"SalesOrderReceiverRabbitMQ.convertDocToMessage -> Error: {ex.Message}");
+            }
+
+            return message;
         }
     }
 }

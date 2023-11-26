@@ -1,7 +1,9 @@
-﻿namespace SalesOrderReceiverService.RabbitMQ.Interfaces
+﻿using SalesOrderReceiverService.Domain.Entities;
+
+namespace SalesOrderReceiverService.RabbitMQ.Interfaces
 {
     public interface ISalesOrderReceiverRabbitMQ
     {
-        Task<List<string>> Receive();
+        Task<List<Message>> Receive();
     }
 }

@@ -91,6 +91,38 @@ namespace SalerOrderReceiverService.Infra.Data.Seed
                 Product product = new Product(productName);
                 _productRepository.CreateProductAsync(product).Wait();
             }
+
+            productName = "Fittipaldi Wheel 372 22pol";
+
+            if(!_productRepository.ProductExistsAsync(productName).Result)
+            {
+                Product product = new Product(productName);
+                _productRepository.CreateProductAsync(product).Wait();
+            }
+
+            productName = "Fittipaldi Wheel 373 22pol";
+
+            if(!_productRepository.ProductExistsAsync(productName).Result)
+            {
+                Product product = new Product(productName);
+                _productRepository.CreateProductAsync(product).Wait();
+            }
+
+            productName = "Fittipaldi Wheel 374 22pol";
+
+            if(!_productRepository.ProductExistsAsync(productName).Result)
+            {
+                Product product = new Product(productName);
+                _productRepository.CreateProductAsync(product).Wait();
+            }
+
+            productName = "Fittipaldi Wheel 375 22pol";
+
+            if(!_productRepository.ProductExistsAsync(productName).Result)
+            {
+                Product product = new Product(productName);
+                _productRepository.CreateProductAsync(product).Wait();
+            }
         }
     }
 }

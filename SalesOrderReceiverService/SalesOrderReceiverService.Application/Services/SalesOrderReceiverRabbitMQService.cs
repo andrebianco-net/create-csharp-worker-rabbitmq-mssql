@@ -18,9 +18,23 @@ namespace SalesOrderReceiverService.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<List<string>> Receive()
+        public async Task<List<MessageDTO>> Receive()
         {
-            return await _salesOrderReceiverRabbitMQRepository.Receive();
+            List<Message> messages = await _salesOrderReceiverRabbitMQRepository.Receive();            
+
+            List<MessageDTO> messagesDTO = new List<MessageDTO>();
+            MessageDTO messageDTO;
+
+            foreach (Message message in messages)
+            {
+                messageDTO = new MessageDTO();
+                messageDTO.SalesOrderDto = _mapper.Map<SalesOrderDTO>(message.SalesOrder);
+                messageDTO.SalesOrderItemsDto = _mapper.Map<List<SalesOrderItemDTO>>(message.SalesOrderItems);
+
+                messagesDTO.Add(messageDTO);
+            }
+
+            return messagesDTO;
         }
     }
 }

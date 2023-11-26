@@ -34,12 +34,14 @@ namespace SalesOrderReceiverService.Infra.IoC
             services.AddScoped<IPaymentTypeRepository, PaymentTypeRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISalesOrderRepository, SalesOrderRepository>();
+            services.AddScoped<ISalesOrderItemRepository, SalesOrderItemRepository>();
             services.AddScoped<ISalesOrderReceiverRabbitMQRepository, SalesOrderReceiverRabbitMQRepository>();
 
             // Service
             services.AddScoped<ISalesOrderReceiverAppService, SalesOrderReceiverAppService>();
             services.AddScoped<ISalesOrderReceiverRabbitMQService, SalesOrderReceiverRabbitMQService>();
             services.AddScoped<ISalesOrderService, SalesOrderService>();
+            services.AddScoped<ISalesOrderItemService, SalesOrderItemService>();
 
             // RabbitMQ
             services.AddScoped<ISalesOrderReceiverRabbitMQ, SalesOrderReceiverRabbitMQ>();

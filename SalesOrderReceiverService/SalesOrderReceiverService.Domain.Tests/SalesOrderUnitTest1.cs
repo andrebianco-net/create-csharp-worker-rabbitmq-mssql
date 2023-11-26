@@ -10,13 +10,12 @@ namespace SalerOrderReceiverService.Domain.Tests
             //Arrange
             decimal total = decimal.Parse("100.5");
             DateTime soldAt = DateTime.Now;
-            bool acceptedOrder = false;
             int customerId = 1; 
             int categoryId = 1;
             int paymentTypeId = 2;
 
             //Act
-            Action action = () => new SalesOrder(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
+            Action action = () => new SalesOrder(total, soldAt, customerId, categoryId, paymentTypeId);
 
             //Assert
             action.Should()
@@ -29,13 +28,12 @@ namespace SalerOrderReceiverService.Domain.Tests
             //Arrange
             decimal total = decimal.Parse("0");
             DateTime soldAt = DateTime.Now;
-            bool acceptedOrder = false;
             int customerId = 1; 
             int categoryId = 1;
             int paymentTypeId = 2;
 
             //Act
-            Action action = () => new SalesOrder(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
+            Action action = () => new SalesOrder(total, soldAt, customerId, categoryId, paymentTypeId);
 
             //Assert
             action.Should()

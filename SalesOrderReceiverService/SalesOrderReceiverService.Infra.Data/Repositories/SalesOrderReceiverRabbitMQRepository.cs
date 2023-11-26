@@ -1,5 +1,6 @@
 using AutoMapper;
 using Microsoft.Extensions.Logging;
+using SalesOrderReceiverService.Domain.Entities;
 using SalesOrderReceiverService.Domain.Interfaces;
 using SalesOrderReceiverService.RabbitMQ.Interfaces;
 
@@ -20,7 +21,7 @@ namespace SalesOrderReceiverService.Infra.Data.Repositories
             _logger = logger;
         }
 
-        public async Task<List<string>> Receive()
+        public async Task<List<Message>> Receive()
         {
             return await _salesOrderReceiverRabbitMQ.Receive();
         }

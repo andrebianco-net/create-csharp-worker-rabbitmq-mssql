@@ -13,7 +13,8 @@ namespace SalerOrderReceiverService.Application.Mappings
             CreateMap<PaymentType, PaymentTypeDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<SalesOrder, SalesOrderDTO>().ReverseMap();
-            CreateMap<SalesOrderItem, SalesOrderItemDTO>().ReverseMap();            
+            CreateMap<SalesOrderItem, SalesOrderItemDTO>().ReverseMap();   
+            CreateMap<Message, MessageDTO>().ReverseMap();         
         }
     }
 }

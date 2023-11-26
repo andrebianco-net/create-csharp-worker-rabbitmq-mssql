@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using SalesOrderReceiverService.Domain.Validation;
 
 namespace SalesOrderReceiverService.Domain.Entities
@@ -6,35 +7,37 @@ namespace SalesOrderReceiverService.Domain.Entities
     {
         public decimal Total { get; private set; }
         public DateTime SoldAt { get; private set; }
-        public bool AcceptedOrder { get; private set; }
 
-        public SalesOrder(decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
+        public SalesOrder(decimal total, DateTime soldAt, int customerId, int categoryId, int paymentTypeId)
         {
-            ValidateDomain(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
+            ValidateDomain(total, soldAt, customerId, categoryId, paymentTypeId);
         }
 
-        public SalesOrder(int id, decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
+        public SalesOrder(int id, decimal total, DateTime soldAt, int customerId, int categoryId, int paymentTypeId)
         {
             ValidateDomain(id);
-            ValidateDomain(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
+            ValidateDomain(total, soldAt, customerId, categoryId, paymentTypeId);
         }
 
-        public void Update(decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
+        public void Update(decimal total, DateTime soldAt, int customerId, int categoryId, int paymentTypeId)
         {
-            ValidateDomain(total, soldAt, acceptedOrder, customerId, categoryId, paymentTypeId);
-            CustomerId = customerId;
-            CategoryId = categoryId;
-            PaymentTypeId = paymentTypeId;
+            ValidateDomain(total, soldAt, customerId, categoryId, paymentTypeId);
 
             ModifiedAt = DateTime.Now;
         }
 
-        private void ValidateDomain(decimal total, DateTime soldAt, bool acceptedOrder, int customerId, int categoryId, int paymentTypeId)
+        private void ValidateDomain(decimal total, DateTime soldAt, int customerId, int categoryId, int paymentTypeId)
         {
             DomainExceptionValidation.When(total <= 0, "Invalid total value");
             DomainExceptionValidation.When(customerId < 0, "Invalid Id value.");
             DomainExceptionValidation.When(categoryId < 0, "Invalid Id value.");
             DomainExceptionValidation.When(paymentTypeId < 0, "Invalid Id value.");
+
+            Total = total;
+            SoldAt = soldAt;
+            CustomerId = customerId;
+            CategoryId = categoryId;
+            PaymentTypeId = paymentTypeId;
         }
 
         public int CustomerId { get; private set; }
@@ -43,6 +46,6 @@ namespace SalesOrderReceiverService.Domain.Entities
 
         public Customer Customer { get; set; }
         public Category Category { get; set; }        
-        public PaymentType PaymentType { get; set; }
+        public PaymentType PaymentType { get; private set; }
     }
 }

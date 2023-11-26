@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SalerOrderReceiverService.Domain.Interfaces;
@@ -21,12 +22,14 @@ namespace SalesOrderReceiverService.Infra.Data.Repositories
 
         public async Task<SalesOrder> CreateSalesOrderAsync(SalesOrder salesOrder)
         {
-            throw new NotImplementedException();
+            _salesOrderContext.Add<SalesOrder>(salesOrder);
+            await _salesOrderContext.SaveChangesAsync();
+            return (SalesOrder)salesOrder;
         }
 
         public async Task<IEnumerable<SalesOrder>> GetSalesOrdersAsync()
         {
-            throw new NotImplementedException();
+            return await _salesOrderContext.SalesOrders.ToListAsync();
         }
     }
 }
