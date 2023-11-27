@@ -105,12 +105,13 @@ namespace SalesOrderReceiverService.RabbitMQ
 
                 SalesOrderDoc salesOrderFromJson = JsonConvert.DeserializeObject<SalesOrderDoc>(document);
 
-                SalesOrder salesOrder = new SalesOrder(
+                SalesOrder salesOrder = new SalesOrder(                    
                     salesOrderFromJson.Total, 
                     salesOrderFromJson.SoldAt, 
                     salesOrderFromJson.CustomerId, 
                     salesOrderFromJson.CategoryId, 
-                    salesOrderFromJson.PaymentTypeId
+                    salesOrderFromJson.PaymentTypeId,
+                    salesOrderFromJson.Id
                 );
 
                 List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();

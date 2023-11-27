@@ -38,12 +38,15 @@ namespace SalesOrderReceiverService.Application.Services
                     //Second, insert that data into MSSQL
                     SalesOrderDTO newSalesOrderDto = await _salesOrderService.CreateSalesOrder(message.SalesOrderDto);
 
-                    foreach (SalesOrderItemDTO item in message.SalesOrderItemsDto)
+                    if (newSalesOrderDto != null)
                     {
-                        item.SalesOrderId = newSalesOrderDto.Id;
-                    }
+                        foreach (SalesOrderItemDTO item in message.SalesOrderItemsDto)
+                        {
+                            item.SalesOrderId = newSalesOrderDto.Id;
+                        }
 
-                    await _salesOrderItemService.CreateSalesOrderItems(message.SalesOrderItemsDto);
+                        await _salesOrderItemService.CreateSalesOrderItems(message.SalesOrderItemsDto);
+                    }
                 }
 
             }

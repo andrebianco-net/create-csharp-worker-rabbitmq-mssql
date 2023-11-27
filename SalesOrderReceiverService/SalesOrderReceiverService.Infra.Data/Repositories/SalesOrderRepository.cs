@@ -31,5 +31,9 @@ namespace SalesOrderReceiverService.Infra.Data.Repositories
         {
             return await _salesOrderContext.SalesOrders.ToListAsync();
         }
+        public async Task<IEnumerable<SalesOrder>> GetOpenSalesOrdersAsync(int customerId)
+        {
+            return await _salesOrderContext.SalesOrders.Where(x => x.CustomerId == customerId && x.IsClosed == false).ToListAsync();
+        }
     }
 }

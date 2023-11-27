@@ -6,5 +6,6 @@ namespace SalerOrderReceiverService.Domain.Interfaces
     {
         Task<IEnumerable<SalesOrder>> GetSalesOrdersAsync();
         Task<SalesOrder> CreateSalesOrderAsync(SalesOrder salesOrder);
+        Task<IEnumerable<SalesOrder>> GetOpenSalesOrdersAsync(int customerId);
     }
 }

@@ -9,7 +9,7 @@
     "DefaultConnection": "YOUR CONNECTION STRING"
   },
   "Worker": {
-    "Interval": 1000
+    "Interval": 30000
   },
   "Serilog": {
     "Folder": "/home/andre/Projects/create-csharp-worker-rabbitmq-mssql/SalesOrderReceiverService/Log",

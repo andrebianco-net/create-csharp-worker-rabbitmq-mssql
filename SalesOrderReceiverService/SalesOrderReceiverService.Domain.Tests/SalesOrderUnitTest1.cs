@@ -13,9 +13,10 @@ namespace SalerOrderReceiverService.Domain.Tests
             int customerId = 1; 
             int categoryId = 1;
             int paymentTypeId = 2;
+            string docId = Guid.NewGuid().ToString();
 
             //Act
-            Action action = () => new SalesOrder(total, soldAt, customerId, categoryId, paymentTypeId);
+            Action action = () => new SalesOrder(total, soldAt, customerId, categoryId, paymentTypeId, docId);
 
             //Assert
             action.Should()
@@ -31,9 +32,10 @@ namespace SalerOrderReceiverService.Domain.Tests
             int customerId = 1; 
             int categoryId = 1;
             int paymentTypeId = 2;
+            string docId = Guid.NewGuid().ToString();
 
             //Act
-            Action action = () => new SalesOrder(total, soldAt, customerId, categoryId, paymentTypeId);
+            Action action = () => new SalesOrder(total, soldAt, customerId, categoryId, paymentTypeId, docId);
 
             //Assert
             action.Should()

@@ -19,8 +19,17 @@ namespace SalesOrderReceiverService.Application.Services
 
         public async Task<SalesOrderDTO> CreateSalesOrder(SalesOrderDTO salesOrderDto)
         {
-            SalesOrder salesOrderEntity = _mapper.Map<SalesOrder>(salesOrderDto);
-            return _mapper.Map<SalesOrderDTO>(await _salesOrderRepository.CreateSalesOrderAsync(salesOrderEntity));
+            SalesOrderDTO salesOrderDTO = null;
+
+            IEnumerable<SalesOrder> openSalesOrderByCustomer = await _salesOrderRepository.GetOpenSalesOrdersAsync(salesOrderDto.CustomerId);
+
+            if (!openSalesOrderByCustomer.Where(x => x.DocId == salesOrderDto.DocId).Any())
+            {
+                SalesOrder salesOrderEntity = _mapper.Map<SalesOrder>(salesOrderDto);
+                salesOrderDTO = _mapper.Map<SalesOrderDTO>(await _salesOrderRepository.CreateSalesOrderAsync(salesOrderEntity));
+            }
+
+            return salesOrderDTO;
         }
     }
 }

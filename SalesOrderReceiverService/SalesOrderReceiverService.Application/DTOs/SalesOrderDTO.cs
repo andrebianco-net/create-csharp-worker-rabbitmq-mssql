@@ -29,5 +29,7 @@ namespace SalesOrderReceiverService.Application.DTOs
         public Customer Customer { get; set; }
         public Category Category { get; set; }
         public PaymentType PaymentType { get; set; }
+        public string DocId { get; set; }
+        public bool IsClosed { get; set; }
     }
 }
