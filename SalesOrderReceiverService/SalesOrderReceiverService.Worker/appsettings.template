@@ -16,6 +16,9 @@
     "File": "SalesOrderReceiverServiceWorker.log",
     "Size": 5242880
   },
+  "Seed": {
+    "Apply": false
+  },
   "RabbitMQ": {
     "Uri": "amqp://YOUR USER:YOUR PASSWORD@YOUR HOST:5672",
     "ClientProvidedName": "Sales Order Receiver",

@@ -7,7 +7,12 @@ IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) =>
     {
         services.AddInfrastructure(hostContext.Configuration);
-        services.AddInfrastructureSeed(hostContext.Configuration);
+
+        if (Convert.ToBoolean(hostContext.Configuration["Seed:Apply"]))
+        {
+            services.AddInfrastructureSeed(hostContext.Configuration);
+        }
+
         services.AddInfrastructureSerilog(hostContext.Configuration);
         services.AddHostedService<SalesOrderReceiverServiceWorker>();        
     })  
