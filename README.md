@@ -5,7 +5,7 @@ Creating a C# .NET Core Worker based on Clean Architecture.
 
 This example is an implementation where I adapted a Worker layer to work together clean architecture layers. Read [readme file ](https://github.com/andrebianco-net/andrebianco-net#readme) in order to obtain more details about the finality of this solution.
 
-In order to know more aboute my career check my Linkedin profile, please.
+In order to know more about my career check my Linkedin profile, please.
 
 https://www.linkedin.com/in/andrebianco-net/
 
