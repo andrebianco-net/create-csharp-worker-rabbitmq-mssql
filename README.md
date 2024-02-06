@@ -33,7 +33,7 @@ Second, update the default connection string to allow access to Microsoft SQL Se
 
 ```json
 "ConnectionStrings": {
-    "DefaultConnection": "YOUR CONNECTION STRING"
+    "DefaultConnection": "YOUR CONNECTION STRING TO RetailDB"
 },
 ```
 
