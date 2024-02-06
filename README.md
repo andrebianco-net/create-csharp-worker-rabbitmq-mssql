@@ -129,3 +129,49 @@ $ sudo docker stop FULL-CONTAINER-ID
 ```
 
 Access to http://localhost:8080/#/ and consider use guest/guest to access if it's the case
+
+#### 9. From Docker to Azure Container
+
+```bash
+$ docker build -t salesorder-receiver-service .
+```
+
+```bash
+[$ docker run -it salesorder-receiver-service]
+```
+
+```bash
+$ docker login youruricreatedinazurecontainerregistry.azurecr.io
+```
+
+```bash
+$ docker tag salesorder-receiver-service youruricreatedinazurecontainerregistry.azurecr.io/salesorder-receiver-service
+```
+
+```bash
+$ docker push youruricreatedinazurecontainerregistry.azurecr.io/salesorder-receiver-service
+```
+
+```bash
+[$ docker pull youruricreatedinazurecontainerregistry.azurecr.io/salesorder-receiver-service]
+```
+
+#### 10. Created in Azure Cloud Computing
+
+###
+![image](https://github.com/andrebianco-net/create-csharp-worker-rabbitmq-mssql/assets/453193/01a8c500-744e-48d5-b4c8-f530f021e5c8)
+
+###
+![image](https://github.com/andrebianco-net/create-csharp-worker-rabbitmq-mssql/assets/453193/a62d382d-231f-41cf-aac9-36f744e10a88)
+
+###
+![image](https://github.com/andrebianco-net/create-csharp-worker-rabbitmq-mssql/assets/453193/47939540-30fd-45bc-9197-27e4ca18c25f)
+
+###
+![image](https://github.com/andrebianco-net/create-csharp-worker-rabbitmq-mssql/assets/453193/9288e591-ad2e-43e6-ab04-48adbbdcccdf)
+
+###
+![image](https://github.com/andrebianco-net/create-csharp-worker-rabbitmq-mongodb/assets/453193/b965fae7-422f-40c7-ab0d-2070f2922fb9)
+
+###
+![image](https://github.com/andrebianco-net/create-csharp-worker-rabbitmq-mongodb/assets/453193/b824813c-9b2c-4ded-9e17-369ca77e26e0)
